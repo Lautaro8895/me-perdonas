@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Me perdonas?</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 20%;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        #yesBtn {
+            background-color: #4CAF50; /* Verde */
+            color: white;
+        }
+        #noBtn {
+            background-color: #f44336; /* Rojo */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Me perdonas?</h1>
+    <button id="yesBtn">Sí</button>
+    <button id="noBtn">No</button>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+
+        noBtn.addEventListener('click', () => {
+            // Reduce el tamaño del botón "No" un 25%
+            let currentNoSize = parseFloat(window.getComputedStyle(noBtn).fontSize);
+            noBtn.style.fontSize = (currentNoSize * 0.75) + 'px';
+
+            // Aumenta el tamaño del botón "Sí" un 25%
+            let currentYesSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentYesSize * 1.25) + 'px';
+
+            // Muestra un mensaje emergente
+            alert('¿Aún no me perdonas, amorcito? Por favor, piénsalo de nuevo :(');
+        });
+
+        yesBtn.addEventListener('click', () => {
+            alert('¡Gracias por perdonarme!');
+        });
+    </script>
+</body>
+</html>
