@@ -37,22 +37,104 @@
     <script>
         const noBtn = document.getElementById('noBtn');
         const yesBtn = document.getElementById('yesBtn');
+        let clickCount = 0;
 
         noBtn.addEventListener('click', () => {
-            // Escala del botón "No"
+            clickCount++;
+
+            // Escalar botones
             let noScale = parseFloat(noBtn.getAttribute("data-scale")) || 1;
             noScale *= 0.75;
             noBtn.setAttribute("data-scale", noScale);
             noBtn.style.transform = `scale(${noScale})`;
 
-            // Escala del botón "Sí"
             let yesScale = parseFloat(yesBtn.getAttribute("data-scale")) || 1;
             yesScale *= 1.25;
             yesBtn.setAttribute("data-scale", yesScale);
             yesBtn.style.transform = `scale(${yesScale})`;
 
-            // Mensaje
-            alert('¿Aún no me perdonas, amorcito? Por favor, piénsalo de nuevo :(');
+            // Mensajes según el número de clics
+            if (clickCount >= 9) {
+                noBtn.style.display = 'none';
+            } else if (clickCount === 8) {
+                alert('Ya, yo sé que estás por perdonarme.');
+            } else if (clickCount === 3) {
+                alert('Yapo piénsalo mejor y perdóname');
+            } else {
+                alert('¿Aún no me perdonas, amorcito? Por favor, piénsalo de nuevo :(');
+            }
+        });
+
+        yesBtn.addEventListener('click', () => {
+            alert('¡Gracias por perdonarme!');
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>¿Me perdonas?</title>
+    <style>
+        body {
+            text-align: center;
+            margin-top: 20%;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            transform-origin: center;
+        }
+        #yesBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>¿Me perdonas?</h1>
+    <button id="yesBtn" data-scale="1">Sí</button>
+    <button id="noBtn" data-scale="1">No</button>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+        let clickCount = 0;
+
+        noBtn.addEventListener('click', () => {
+            clickCount++;
+
+            // Escalar botones
+            let noScale = parseFloat(noBtn.getAttribute("data-scale")) || 1;
+            noScale *= 0.75;
+            noBtn.setAttribute("data-scale", noScale);
+            noBtn.style.transform = `scale(${noScale})`;
+
+            let yesScale = parseFloat(yesBtn.getAttribute("data-scale")) || 1;
+            yesScale *= 1.25;
+            yesBtn.setAttribute("data-scale", yesScale);
+            yesBtn.style.transform = `scale(${yesScale})`;
+
+            // Mensajes según el número de clics
+            if (clickCount >= 9) {
+                noBtn.style.display = 'none';
+            } else if (clickCount === 8) {
+                alert('Ya, yo sé que estás por perdonarme.');
+            } else if (clickCount === 3) {
+                alert('Yapo piénsalo mejor y perdóname');
+            } else {
+                alert('¿Aún no me perdonas, amorcito? Por favor, piénsalo de nuevo :(');
+            }
         });
 
         yesBtn.addEventListener('click', () => {
